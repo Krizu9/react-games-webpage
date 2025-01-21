@@ -1,15 +1,24 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router";
 import Home from "./Home";
 
-test("renders the home page with game buttons", () => {
-  render(
-    <BrowserRouter>
-      <Home />
-    </BrowserRouter>
-  );
-  expect(screen.getByText(/Welcome to the Game Library/i)).toBeInTheDocument();
-  expect(screen.getByText(/Play Game 1/i)).toBeInTheDocument();
-  expect(screen.getByText(/Play Game 2/i)).toBeInTheDocument();
+describe("Home Component", () => {
+  test("renders the heading and description", () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    // check if the heading is rendered
+    expect(screen.getByText("Welcome to the Game Library")).toBeInTheDocument();
+
+    // check if the description is rendered
+    expect(screen.getByText("Select a game to play:")).toBeInTheDocument();
+
+    // check if the buttons are rendered
+    expect(screen.getByText("Play Game 1")).toBeInTheDocument();
+    expect(screen.getByText("Play Game 2")).toBeInTheDocument();
+  });
 });

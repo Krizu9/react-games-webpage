@@ -2,8 +2,14 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import Navbar from "../components/NavBar";
 
-test("renders the navbar with correct information", () => {
-  render(<Navbar />);
-  expect(screen.getByText(/React Games Webpage/i)).toBeInTheDocument();
-  expect(screen.getByText(/Created by/i)).toBeInTheDocument();
+describe("NavBar Component", () => {
+  test("renders the heading and description", () => {
+    render(<Navbar />);
+
+    // Check if the heading is rendered
+    expect(screen.getByText("React Games Webpage")).toBeInTheDocument();
+
+    // Check if the description is rendered
+    expect(screen.getByText("Created by Kristian Pekkanen")).toBeInTheDocument();
+  });
 });

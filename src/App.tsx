@@ -1,9 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/NavBar.tsx";
-import Home from "./pages/Home.tsx";
-import Game1 from "./pages/Game1.tsx";
-import Game2 from "./pages/Game2.tsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import Navbar from "./components/NavBar";
+import Home from "./pages/Home";
+import Game1 from "./pages/Game1";
+import Game2 from "./pages/Game2";
 
 const App: React.FC = () => {
   return (
