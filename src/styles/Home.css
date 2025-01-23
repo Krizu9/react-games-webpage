@@ -1,76 +1,179 @@
+/* Base styles for container */
 .homecontainer {
   background: url("../images/background-image.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 1rem;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
+/* Heading styles */
 h1 {
   color: #37b63c;
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.3;
+}
+
+h3 {
+  color: #37b63c;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h3{
-    color: #37b63c;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    
-}
-
-.cardcontainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 2rem;
-    gap: 2rem;
+/* Card container styles */
+.cardcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 p {
   color: #37b63c;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.gameImage{
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+.gameImage {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
-.cardforgame{
-    width: 30%;
-    height: 50%;
-    border-radius: 20px;
-    background-color: transparent;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    box-shadow: 0 0 20px rgba(0, 4, 200, 2);
+.cardforgame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 4, 200, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
+.cardforgame:hover {
+  transform: scale(1.02);
+}
 
-.custom-button {
+/* Button styles */
+button {
   background-color: #37b63c;
   border: none;
   color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.3s ease-in-out;
+  display: block;
+  margin: 0 auto;
 }
 
-.custom-button:hover {
+button:hover {
   background-color: #2eca36;
+}
+
+@media (min-width: 1025px) {
+  .cardcontainer {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .cardforgame {
+    max-width: 100%;
+  }
+}
+
+/* Responsive styles for medium screens (tablets) */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .cardforgame {
+    max-width: 45%;
+  }
+
+  .cardcontainer {
+    gap: 1rem;
+  }
+}
+
+/* Responsive styles for small screens (mobile) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .homecontainer {
+    justify-content: flex-start;
+    background-attachment: scroll;
+  }
+
+  .cardforgame {
+    width: 90%;
+    max-width: none;
+    padding: 1rem;
+  }
+
+  .cardcontainer {
+    gap: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+/* Responsive styles for very small screens (extra small mobile) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .cardforgame {
+    width: 95%;
+    padding: 0.8rem;
+  }
+
+  .cardcontainer {
+    gap: 0.5rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
 }

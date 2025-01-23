@@ -26,10 +26,10 @@ const GameBoard = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState(shuffleArray([...initialCards]));
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
-  const [isProcessing, setIsProcessing] = useState(false); // to prevent clicking while processing
+  const [isProcessing, setIsProcessing] = useState(false); 
 
   const handleCardClick = (index: number) => {
-    if (isProcessing || cards[index].flipped || cards[index].matched) return; // ignore if processing or card already flipped/matched
+    if (isProcessing || cards[index].flipped || cards[index].matched) return;
 
     const updatedCards = [...cards];
     updatedCards[index].flipped = true;
@@ -39,13 +39,12 @@ const GameBoard = () => {
 
   useEffect(() => {
     if (flippedCards.length === 2) {
-      setIsProcessing(true); // block clicking
+      setIsProcessing(true); 
       const [firstIndex, secondIndex] = flippedCards;
       const firstCard = cards[firstIndex];
       const secondCard = cards[secondIndex];
 
       if (firstCard.id === secondCard.id) {
-        // Cards match
         setCards((prev) =>
           prev.map((card, index) =>
             index === firstIndex || index === secondIndex
@@ -53,10 +52,9 @@ const GameBoard = () => {
               : card
           )
         );
-        setFlippedCards([]); // reset flipped cards
-        setIsProcessing(false); // allow clicking
+        setFlippedCards([]);
+        setIsProcessing(false);
       } else {
-        // Cards don't match
         setTimeout(() => {
           setCards((prev) =>
             prev.map((card, index) =>
@@ -65,15 +63,15 @@ const GameBoard = () => {
                 : card
             )
           );
-          setFlippedCards([]); // reset flipped cards
-          setIsProcessing(false); // allow clicking
+          setFlippedCards([]);
+          setIsProcessing(false);
         }, 1000);
       }
     }
   }, [flippedCards, cards]);
 
   const resetGame = () => {
-    setCards(shuffleArray([...initialCards])); // shuffle cards
+    setCards(shuffleArray([...initialCards]));
     setCards((prev) => prev.map((card) => ({ ...card, flipped: false, matched: false })));
     setFlippedCards([]);
     setIsProcessing(false);
@@ -81,25 +79,26 @@ const GameBoard = () => {
 
   return (
     <div className="container">
-    <h1>Memory Game</h1>
-    <div className="game-container">
-      {cards.map((card, index) => (
-        <Card
-          key={index}
-          image={card.image}
-          flipped={card.flipped}
-          matched={card.matched}
-          onClick={() => handleCardClick(index)}
-        />
-      ))}
-      <div className="buttons"></div>
-      <button className="back-button" onClick={() => navigate("/")}>
-        Back to Home
-      </button>
-      <button className="reset-button" onClick={resetGame}>
-        Reset Game
-      </button>
-    </div>
+      <h1>Memory Game</h1>
+      <div className="game-container">
+        {cards.map((card, index) => (
+          <Card
+            key={index}
+            image={card.image}
+            flipped={card.flipped}
+            matched={card.matched}
+            onClick={() => handleCardClick(index)}
+          />
+        ))}
+      </div>
+      <div>
+        <button className="back-button" onClick={() => navigate("/")}>
+          Back to Home
+        </button>
+        <button className="reset-button" onClick={resetGame}>
+          Reset Game
+        </button>
+      </div>
     </div>
   );
 };
