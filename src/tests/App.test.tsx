@@ -15,6 +15,6 @@ test("renders the navbar and routes correctly", () => {
   expect(screen.getByText(/Select a game to play:/i)).toBeInTheDocument();
 
   // check if the navigation buttons are rendered
-  expect(screen.getByText(/Play Game 1/i)).toBeInTheDocument();
+  expect(screen.getByText(/Play Memory Game/i)).toBeInTheDocument();
   expect(screen.getByText(/Play Game 2/i)).toBeInTheDocument();
 });

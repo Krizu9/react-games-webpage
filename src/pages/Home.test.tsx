@@ -18,7 +18,7 @@ describe("Home Component", () => {
     expect(screen.getByText("Select a game to play:")).toBeInTheDocument();
 
     // check if the buttons are rendered
-    expect(screen.getByText("Play Game 1")).toBeInTheDocument();
+    expect(screen.getByText("Play Memory Game")).toBeInTheDocument();
     expect(screen.getByText("Play Game 2")).toBeInTheDocument();
   });
 });
