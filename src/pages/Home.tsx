@@ -18,8 +18,8 @@ function Home() {
         </div>
 
         <div className="cardforgame">
-          <h3>Some game</h3>
-          <p>This will have description</p>
+          <h3>Snake game</h3>
+          <p>Eat and grow!</p>
           <img className="gameImage" src="https://placehold.jp/150x150.png" alt="Memory Game" />
           <button onClick={() => navigate("/game2")}>Play</button>
         </div>
