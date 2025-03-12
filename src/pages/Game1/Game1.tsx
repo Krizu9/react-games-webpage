@@ -78,9 +78,9 @@ const GameBoard = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container1">
       <h1>Memory Game</h1>
-      <div className="game-container">
+      <div className="game-container1">
         {cards.map((card, index) => (
           <Card
             key={index}
